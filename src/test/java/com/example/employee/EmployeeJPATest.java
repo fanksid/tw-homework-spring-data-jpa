@@ -12,11 +12,7 @@ import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabas
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Sort;
-import org.springframework.data.jpa.repository.Modifying;
-import org.springframework.data.jpa.repository.Query;
 import org.springframework.test.context.junit4.SpringRunner;
-import org.springframework.transaction.annotation.Transactional;
 
 import static org.assertj.core.api.AssertionsForInterfaceTypes.assertThat;
 import static org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase.Replace.NONE;
@@ -81,9 +77,9 @@ public class EmployeeJPATest {
     @Test
     public void should_return_influence_lines_when_update_employee_name() throws Exception {
         //6.将xiaohong的名字改成xiaobai,输出这次修改影响的行数
-//        Integer expectedLine = 1;
-//        Integer actualLine = null;
-//        assertThat(actualLine).isEqualTo(expectedLine);
+        Integer expectedLine = 1;
+        Integer actualLine = employeeRepository.modifyNameByName("xiaohong", "xiaobai");
+        assertThat(actualLine).isEqualTo(expectedLine);
     }
 
     @Test
