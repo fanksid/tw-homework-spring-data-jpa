@@ -52,9 +52,8 @@ public class EmployeeJPATest {
     @Test
     public void should_return_employee_name_when_employee_salary_is_max_and_given_company_id_() throws Exception {
         //3.找出一个薪资最高且公司ID是1的雇员以及该雇员的name
-        // TODO: 这里真的要返回名字？
-        Employee expectedEmployee = new Employee(1L, "xiaohong", 19, "female", 1, 7000);
-        Assert.assertEquals(expectedEmployee, employeeRepository.findFirstByCompanyIdOrderBySalaryDesc(1));
+        String expectName = "xiaohong";
+        Assert.assertEquals(expectName, employeeRepository.findFirstByCompanyIdOrderBySalaryDesc(1).getName());
     }
 
     @Test
