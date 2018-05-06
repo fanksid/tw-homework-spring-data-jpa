@@ -8,8 +8,6 @@ import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
-import java.util.List;
-
 @Repository
 public interface EmployeeRepository extends JpaRepository<Employee, Long> {
     //以下所有的*都代表变量
